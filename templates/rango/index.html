@@ -11,9 +11,36 @@
         <h1>Rango says...</h1>
 
         <div>
-            hey there partner! <br />
-            <strong>{{ boldmessage }}</strong><br />
-        </div>
+            {% if categories_like %}
+                <h2>Most Liked Categories</h2>
+                <ul>
+                    {% for category in categories_like %}
+                    <li>
+                        <!-- The following line is changed to add an HTML hyperlink -->
+                        <a href="/rango/category/{{ category.slug }}/">{{ category.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <strong>There are no categories present.</strong>
+            {% endif %}
+         </div>
+
+         <div>
+            {% if category_view %}
+                <h2>Most Liked Categories</h2>
+                <ul>
+                    {% for category in category_view %}
+                    <li>
+                        <!-- The following line is changed to add an HTML hyperlink -->
+                        <a href="/rango/category/{{ category.slug }}/">{{ category.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <strong>There are no categories present.</strong>
+            {% endif %}
+         </div>
 
         <div>
             <a href="/rango/about/">About</a><br />
