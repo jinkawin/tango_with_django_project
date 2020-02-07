@@ -25,3 +25,8 @@ class Page(models.Model):
 
     def __str__(self):
         return self.title
+
+class ModelForm(models.Model):
+
+    def __str__(self):
+        return self.title
