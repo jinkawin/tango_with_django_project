@@ -98,17 +98,8 @@ def add_page(request, category_name_slug):
 
     form = PageForm()
 
-
-    print('========================')
-    print('Yes0')
-    print('========================')
-
     if request.method == 'POST':
         form = PageForm(request.POST)
-
-        print('========================')
-        print('Yes1')
-        print('========================')
 
         if form.is_valid():
             if category:
@@ -116,10 +107,6 @@ def add_page(request, category_name_slug):
                 page.category = category
                 page.views = 0
                 page.save()
-
-                print('========================')
-                print('Yes2')
-                print('========================')
 
                 return redirect(reverse('rango:show_category',
                                         kwargs={'category_name_slug':
